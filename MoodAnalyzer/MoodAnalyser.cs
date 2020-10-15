@@ -7,6 +7,7 @@ namespace MoodAnalyzer
 {
     public class MoodAnalyser
     {
+        internal string msg;
         string _message;
 
         public MoodAnalyser()
@@ -27,7 +28,7 @@ namespace MoodAnalyzer
             {
                 if (this._message.Length == 0)
                 {
-                    throw new MoodAnalysisException(MoodAnalysisException.ExceptionType.EMPTY, "Mood cannot be empty");
+                    throw new MoodAnalysisException(MoodAnalysisException.ExceptionType.EMPTY_MESSAGE, "Mood cannot be empty");
                 }
                 else if (regexExp.IsMatch(this._message))
                 {
@@ -40,7 +41,7 @@ namespace MoodAnalyzer
             }
             catch (NullReferenceException)
             {
-                throw new MoodAnalysisException(MoodAnalysisException.ExceptionType.NULL, "Mood cannot have null value");
+                throw new MoodAnalysisException(MoodAnalysisException.ExceptionType.NULL_MESSAGE, "Mood cannot have null value");
             }
         }
     }
