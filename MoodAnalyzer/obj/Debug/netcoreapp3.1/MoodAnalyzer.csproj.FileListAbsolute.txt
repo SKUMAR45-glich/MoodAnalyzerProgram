@@ -1,0 +1,13 @@
+C:\Users\saura\Desktop\Desktop\MoodAnalyzing\MoodAnalyzer\obj\Debug\netcoreapp3.1\MoodAnalyzer.csprojAssemblyReference.cache
+C:\Users\saura\Desktop\Desktop\MoodAnalyzing\MoodAnalyzer\obj\Debug\netcoreapp3.1\MoodAnalyzer.AssemblyInfoInputs.cache
+C:\Users\saura\Desktop\Desktop\MoodAnalyzing\MoodAnalyzer\obj\Debug\netcoreapp3.1\MoodAnalyzer.AssemblyInfo.cs
+C:\Users\saura\Desktop\Desktop\MoodAnalyzing\MoodAnalyzer\obj\Debug\netcoreapp3.1\MoodAnalyzer.csproj.CoreCompileInputs.cache
+C:\Users\saura\Desktop\Desktop\MoodAnalyzing\MoodAnalyzer\bin\Debug\netcoreapp3.1\MoodAnalyzer.exe
+C:\Users\saura\Desktop\Desktop\MoodAnalyzing\MoodAnalyzer\bin\Debug\netcoreapp3.1\MoodAnalyzer.deps.json
+C:\Users\saura\Desktop\Desktop\MoodAnalyzing\MoodAnalyzer\bin\Debug\netcoreapp3.1\MoodAnalyzer.runtimeconfig.json
+C:\Users\saura\Desktop\Desktop\MoodAnalyzing\MoodAnalyzer\bin\Debug\netcoreapp3.1\MoodAnalyzer.runtimeconfig.dev.json
+C:\Users\saura\Desktop\Desktop\MoodAnalyzing\MoodAnalyzer\bin\Debug\netcoreapp3.1\MoodAnalyzer.dll
+C:\Users\saura\Desktop\Desktop\MoodAnalyzing\MoodAnalyzer\bin\Debug\netcoreapp3.1\MoodAnalyzer.pdb
+C:\Users\saura\Desktop\Desktop\MoodAnalyzing\MoodAnalyzer\obj\Debug\netcoreapp3.1\MoodAnalyzer.dll
+C:\Users\saura\Desktop\Desktop\MoodAnalyzing\MoodAnalyzer\obj\Debug\netcoreapp3.1\MoodAnalyzer.pdb
+C:\Users\saura\Desktop\Desktop\MoodAnalyzing\MoodAnalyzer\obj\Debug\netcoreapp3.1\MoodAnalyzer.genruntimeconfig.cache
