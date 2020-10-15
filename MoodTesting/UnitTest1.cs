@@ -33,5 +33,34 @@ namespace MoodTesting
             //Assert
             Assert.AreEqual(mood, result);
         }
+
+        [TestMethod]
+        public void AnalyzeExceptionHandlingforNULL()
+        {
+            //Arrange
+            MoodAnalyser moodAnalyser = new MoodAnalyser();
+            string msg = "NULL";
+            string mood = "NULL";
+
+            //Act
+            string result = moodAnalyser.AnalyseMood(msg);
+
+            //Assert
+            Assert.AreEqual(mood, result);
+        }
+        [TestMethod]
+        public void AnalyzeExceptionHandlingforEmpty()
+        {
+            //Arrange
+            MoodAnalyser moodAnalyser = new MoodAnalyser();
+            string msg = "";
+            string mood = "Empty";
+
+            //Act
+            string result = moodAnalyser.AnalyseMood(msg);
+
+            //Assert
+            Assert.AreEqual(mood, result);
+        }
     }
 }

@@ -7,17 +7,32 @@ namespace MoodAnalyzer
 {
     public class MoodAnalyser
     {
-        string _mood;
-        public MoodAnalyser()
+        enum Errors
         {
-            _mood = "";
+            NULL, Empty, Others
         }
+        string mood;
         public string AnalyseMood(string msg)
         {
+            if (msg == null)
+            {
+                throw new MoodAnalysisException(Errors.NULL.ToString());
+            }
+            else if (msg.Length == 0)
+            {
+                throw new MoodAnalysisException(Errors.Empty.ToString());
+            }
+            Regex regexExp = new Regex("^(.*[ ])*[sSaAdD]{3}([ ].*)*");
 
-            Regex regexExp = new Regex("^(.*[ ])*[sS][aA][dD]([ ].*)*");
-            _mood = regexExp.IsMatch(msg) ? "SAD" : "HAPPY";
-            return _mood;
+            try
+            {
+                mood = regexExp.IsMatch(msg) ? "SAD" : "HAPPY";
+            }
+            catch (MoodAnalysisException)
+            {
+                throw new MoodAnalysisException(Errors.Others.ToString());
+            }
+            return mood;
         }
     }
 }
