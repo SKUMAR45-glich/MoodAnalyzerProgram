@@ -16,8 +16,16 @@ namespace MoodAnalyzer
         {
 
             Regex regexExp = new Regex("^(.*[ ])*[sS][aA][dD]([ ].*)*");
-            _mood = regexExp.IsMatch(msg) ? "SAD" : "HAPPY";
-            return _mood;
+            try
+            {
+                mood = regexExp.IsMatch(msg) ? "SAD" : "HAPPY";
+            }
+            catch
+            {
+                return "Happy";
+            }
+            return mood;
         }
+
     }
 }
