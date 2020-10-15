@@ -10,8 +10,9 @@ namespace MoodTesting
         {
             string className = "MoodAnalyser";
             string cName = className;
-            object expected = new MoodAnalyser();
-            object actual = MoodAnalyseFactory.CreateMoodAnalyse(className, cName);
+            string msg = "Parameter";
+            object expected = new MoodAnalyser(msg);
+            object actual = MoodAnalyseFactory.CreateMoodAnalyse(className, cName, msg);
 
             expected.Equals(actual);
         }
@@ -21,11 +22,14 @@ namespace MoodTesting
             string className = "MoodAnalyseWrong";
             string cName = className;
             string expected = "No such Class";
+
+            string msg = "Parameter";
+
             string actualstring; //= MoodAnalyseFactory.CreateMoodAnalyse(className, cName);
 
             try
             {
-                object actual = MoodAnalyseFactory.CreateMoodAnalyse(className, cName);
+                object actual = MoodAnalyseFactory.CreateMoodAnalyse(className, cName, msg);
                 actualstring = actual.ToString();
             }
             catch (MoodAnalysisException e)
@@ -39,12 +43,14 @@ namespace MoodTesting
         {
             string className = "MoodAnalyser";
             string cName = "MoodAnalyseW";
+
+            string msg = "Parameter";
             string expected = "No such Constructor";
             string actualstring; //= MoodAnalyseFactory.CreateMoodAnalyse(className, cName);
 
             try
             {
-                object actual = MoodAnalyseFactory.CreateMoodAnalyse(className, cName);
+                object actual = MoodAnalyseFactory.CreateMoodAnalyse(className, cName, msg);
                 actualstring = actual.ToString();
             }
             catch (MoodAnalysisException e)
@@ -53,5 +59,6 @@ namespace MoodTesting
             }
             Assert.AreEqual(expected, actualstring);
         }
+
     }
 }

@@ -8,20 +8,18 @@ namespace MoodAnalyzer
 {
     public class MoodAnalyseFactory
     {
-        public static object CreateMoodAnalyse(string className, string constructorName)
+        public static object CreateMoodAnalyse(string className, string constructorName, string msg)
         {
-           
+            Type type;
             Match match = Regex.Match(className, constructorName);
 
             if (match.Success)
             {
                 try
                 {
-                    Assembly excute = Assembly.GetExecutingAssembly();
-                    Type moodAnalyse = excute.GetType(className);
-                    return Activator.CreateInstance(moodAnalyse);
+                    type = Type.GetType("MoodAnalyzer." + className);
                 }
-                catch (ArgumentNullException)
+                catch (Exception)
                 {
                     throw new MoodAnalysisException(MoodAnalysisException.ExceptionType.NO_SUCH_CLASS, "No such Class");
                 }
@@ -31,7 +29,11 @@ namespace MoodAnalyzer
                 throw new MoodAnalysisException(MoodAnalysisException.ExceptionType.NO_SUCH_FIELD, "No such Constructor");
             }
 
-           
+            ConstructorInfo constructorInfo = type.GetConstructor(new Type[] { typeof(string) });
+            object[] parameter = new object[] { msg };
+            object result = constructorInfo.Invoke(parameter);
+
+            return result;
         }
     }
 }
