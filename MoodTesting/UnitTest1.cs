@@ -6,61 +6,52 @@ namespace MoodTesting
     public class UnitTest1
     {
         [TestMethod]
-        public void TestforSad()
+        public void GivenMoodAnalyseClassName_ShouldreturnMoodAnalyserObject()
         {
-            //Arrange
-            MoodAnalyser moodAnalyser = new MoodAnalyser();
-            string msg = "I am in Sad Mood";
-            string mood = "SAD";
+            string className = "MoodAnalyser";
+            string cName = className;
+            object expected = new MoodAnalyser();
+            object actual = MoodAnalyseFactory.CreateMoodAnalyse(className, cName);
 
-            //Act
-            string result = moodAnalyser.AnalyseMood(msg);
-
-            //Assert
-            Assert.AreEqual(mood, result);
+            expected.Equals(actual);
         }
         [TestMethod]
-        public void TestforHappy()
+        public void GivenMoodAnalyseClassName_ReturnClassNotFound()
         {
-            //Arrange
-            MoodAnalyser moodAnalyser = new MoodAnalyser();
-            string msg = "I am in Any Mood";
-            string mood = "HAPPY";
+            string className = "MoodAnalyseWrong";
+            string cName = className;
+            string expected = "No such Class";
+            string actualstring; //= MoodAnalyseFactory.CreateMoodAnalyse(className, cName);
 
-            //Act
-            string result = moodAnalyser.AnalyseMood(msg);
-
-            //Assert
-            Assert.AreEqual(mood, result);
-        }
-
-        [TestMethod]
-        public void AnalyzeExceptionHandlingforNULL()
-        {
-            //Arrange
-            MoodAnalyser moodAnalyser = new MoodAnalyser();
-            string msg = "NULL";
-            string mood = "NULL";
-
-            //Act
-            string result = moodAnalyser.AnalyseMood(msg);
-
-            //Assert
-            Assert.AreEqual(mood, result);
+            try
+            {
+                object actual = MoodAnalyseFactory.CreateMoodAnalyse(className, cName);
+                actualstring = actual.ToString();
+            }
+            catch (MoodAnalysisException e)
+            {
+                actualstring = e.Message;
+            }
+            Assert.AreEqual(expected, actualstring);
         }
         [TestMethod]
-        public void AnalyzeExceptionHandlingforEmpty()
+        public void GivenMoodAnalyseClassName_ReturnConstructorNotFound()
         {
-            //Arrange
-            MoodAnalyser moodAnalyser = new MoodAnalyser();
-            string msg = "";
-            string mood = "Empty";
+            string className = "MoodAnalyser";
+            string cName = "MoodAnalyseW";
+            string expected = "No such Constructor";
+            string actualstring; //= MoodAnalyseFactory.CreateMoodAnalyse(className, cName);
 
-            //Act
-            string result = moodAnalyser.AnalyseMood(msg);
-
-            //Assert
-            Assert.AreEqual(mood, result);
+            try
+            {
+                object actual = MoodAnalyseFactory.CreateMoodAnalyse(className, cName);
+                actualstring = actual.ToString();
+            }
+            catch (MoodAnalysisException e)
+            {
+                actualstring = e.Message;
+            }
+            Assert.AreEqual(expected, actualstring);
         }
     }
 }

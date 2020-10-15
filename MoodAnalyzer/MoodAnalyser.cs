@@ -7,32 +7,43 @@ namespace MoodAnalyzer
 {
     public class MoodAnalyser
     {
-        enum Errors
+        string _message;
+
+        public MoodAnalyser()
         {
-            NULL, Empty, Others
         }
-        string mood;
-        public string AnalyseMood(string msg)
+
+        public MoodAnalyser(string message)
         {
-            if (msg == null)
-            {
-                throw new MoodAnalysisException(Errors.NULL.ToString());
-            }
-            else if (msg.Length == 0)
-            {
-                throw new MoodAnalysisException(Errors.Empty.ToString());
-            }
-            Regex regexExp = new Regex("^(.*[ ])*[sSaAdD]{3}([ ].*)*");
+            this._message = message;
+        }
+
+        public string AnalyseMood()
+        {
+            string regexStr = "^(.*[ ])*[sS][aA][dD]([ ].*)*";
+            Regex regexExp = new Regex(regexStr);
 
             try
             {
-                mood = regexExp.IsMatch(msg) ? "SAD" : "HAPPY";
+                if (this._message.Length == 0)
+                {
+                    throw new MoodAnalysisException(MoodAnalysisException.ExceptionType.EMPTY, "Mood cannot be empty");
+                }
+                else if (regexExp.IsMatch(this._message))
+                {
+                    return "Sad";
+                }
+                else
+                {
+                    return "Happy";
+                }
             }
-            catch (MoodAnalysisException)
+            catch (NullReferenceException)
             {
-                throw new MoodAnalysisException(Errors.Others.ToString());
+                throw new MoodAnalysisException(MoodAnalysisException.ExceptionType.NULL, "Mood cannot have null value");
             }
-            return mood;
         }
     }
+
+}
 }
