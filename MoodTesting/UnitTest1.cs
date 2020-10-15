@@ -59,6 +59,28 @@ namespace MoodTesting
             }
             Assert.AreEqual(expected, actualstring);
         }
+        [TestMethod]
+        public void GivenHappyMoodShouldReturnHappy()
+        {
+            string expected = "HAPPY";
+            string mood = MoodAnalyseFactory.InvokeAnalyseMood("HAPPY", "AnalyseMood");
+            Assert.AreEqual(expected, mood);
+        }
 
+        [TestMethod]
+        public void GivenHappyMoodShouldReturnNoSuchMethod()
+        {
+            string expected = "No such Method";
+            string mood;
+            try
+            {
+                mood = MoodAnalyseFactory.InvokeAnalyseMood("Wrong", "AnalyseMood");
+            }
+            catch (MoodAnalysisException e)
+            {
+                mood = e.Message;
+            }
+            Assert.AreEqual(expected, mood);
+        }
     }
 }
